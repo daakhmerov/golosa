@@ -1,0 +1,150 @@
+@import "_mixins";
+@import "_functions";
+
+// Sidebar Cards
+.sidebar-card {
+  @include vGap(90);
+  &_sticky {
+    position: sticky;
+    top: toRem(35);
+  }
+
+  &__title_arrow {
+    font-weight: 300;
+    position: relative;
+    color: #646464;
+    @include vGap(15);
+    & > a {
+      color: inherit;
+    }
+    &::after {
+      position: absolute;
+      top: toRem(2);
+      font: toRem(22) "Phosphor";
+      content: "\f31c";
+    }
+    &:hover {
+      transition: 0.5s;
+      color: #010101;
+    }
+  }
+
+  &__title {
+    font-weight: 300;
+    position: relative;
+    color: #646464;
+    @include vGap(15);
+  }
+
+  &__text {
+    color: #646464;
+    line-height: toRem(16);
+  }
+  & .subtext {
+    &_gap {
+      @include vGap(30);
+      color: #646464;
+    }
+  }
+}
+
+// Research Sidebar
+.research-sidebar {
+  position: sticky;
+  top: toRem(35);
+  background-color: #010101;
+  padding: toRem(40) toRem(30) toRem(30) toRem(30);
+  border-radius: 10px;
+  & .divider {
+    border-color: #a0a0a0;
+  }
+
+  & .sidebar-card {
+    &__title {
+      color: white;
+    }
+    &__text {
+      color: #a0a0a0;
+    }
+  }
+}
+
+// Card Items
+.sidebar-card {
+  &__items {
+    @extend .theme-card__items;
+    color: #646464 !important;
+  }
+  &__item {
+    @extend .theme-card__item;
+    &::before {
+      color: #646464 !important;
+      @include pasteIconImportant("\f340");
+    }
+  }
+}
+
+// Theme Cards
+.theme-cards {
+  overflow-y: scroll;
+  height: toRem(300);
+  padding-right: toRem(15);
+
+  &::-webkit-scrollbar {
+    border-radius: 5px;
+    width: 5px;
+    background-color: rgb(44, 44, 44);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(156, 156, 156);
+    border-radius: 5px;
+    width: 5px;
+  }
+}
+
+.theme-card {
+  position: relative;
+  margin-bottom: toRem(40);
+  &__items {
+    color: #cecece;
+  }
+
+  &__item {
+    display: flex;
+    text-transform: lowercase;
+    @include vGap(10);
+    &::before {
+      cursor: pointer;
+      display: block;
+      margin: 1.5px 10px 0 0;
+      // Checked
+      // @include pasteIcon("\f340");
+      // Unchecked
+      @include pasteIcon("\f5ab");
+      color: #cecece;
+      font-size: toRem(16);
+    }
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &__subtext {
+    @include vGap(30);
+  }
+
+  & .sidebar-card {
+    &__title {
+      text-transform: lowercase;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &::after {
+        content: "\2022";
+        display: block;
+        color: red;
+        font-size: 2rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@import 'mixins';
+@import 'functions';
+@import 'fonts';
+
+.header {
+    width: 1100px;
+    &-menu {
+        padding: toRem(35) 0;
+        @include vGap(140);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        &__logo {
+            font-size: toRem(30);
+        }
+
+        &__items {
+            display: flex;
+            justify-content: space-between;
+            font-size: toRem(14);
+        }
+
+        &__item {
+            font-weight: 500;
+            margin-left: toRem(95);
+            min-width: toRem(95);
+            height: toRem(50);
+            line-height: toRem(50);
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,70 @@
+{% extends "base.html" %} 
+
+{% block content %}
+<div class="content main-container__row">
+  <aside class="content__sidebar_left">
+    <div class="sidebar-card">
+      <h3 class="sidebar-card__title_arrow">
+        <a href="{{ request.path }}/about">Об интервью</a>
+      </h3>
+      <hr class="divider divider_15" />
+      <p class="sidebar-card__text subtext">
+        Дополнительная информация об интервью: кто информант, где было взято
+        интервью и прочие дополнительные сведения
+      </p>
+    </div>
+
+    <div class="sidebar-card sidebar-card_sticky">
+      <h3 class="sidebar-card__title">Темы</h3>
+      <hr class="divider divider_15" />
+      <p class="sidebar-card__text subtext gap-15">
+        Темы, о которых говорится в этом интервью
+      </p>
+      <div class="sidebar-card__items">
+        {% for code in codes%}
+          <div class="sidebar-card__item">{{ code.get('parent') }}</div>
+        {% endfor %}
+      </div>
+    </div>
+  </aside>
+  <div class="content__article">
+    <div class="content__breadcrumbs breadcrumbs">
+      <a href="{{ url_for('index') }}" class="link">Главная</a> /
+      <a href="{{ request.path }}" class="link_active">{{ title }}</a>
+    </div>
+    <h1 class="content__title">{{ title }}</h1>
+    <p class="content__abstract">{{ abstract }}.</p>
+    <div class="content__author">Даниил Ахмеров</div>
+    <hr class="divider divider_30" />
+    <main class="content__text">{{ text|safe }}</main>
+  </div>
+  <aside class="content__sidebar_right">
+    <div class="research-sidebar">
+      <div class="sidebar-card">
+        <h3 class="sidebar-card__title">Дочерние темы</h3>
+        <hr class="divider divider_15" />
+        <p class="sidebar-card__text subtext">
+          В темах, которые вы выбрали, есть дочерние темы. Вы можете выбрать только те, которые вам интересны. По умолчанию отображаются все дочерние темы
+        </p>
+      </div>
+
+      <div class="theme-cards">
+        {% for code in codes %}
+        <div class="sidebar-card sidebar-card theme-card">
+          <h3 class="sidebar-card__title">{{ code.get("parent") }}</h3>
+          <hr class="divider divider_15" />
+          <p class="sidebar-card__text subtext theme-card__subtext">
+            {{ code.get("description") }}
+          </p>
+          <div class="theme-card__items">
+            {% for child in code.get("children") %}
+            <div class="theme-card__item">{{ child }}</div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </aside>
+</div>
+{% endblock %}

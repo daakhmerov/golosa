@@ -1,0 +1,52 @@
+// Импорт необходимых функций
+@import "_functions";
+@import "_mixins";
+
+// Шрифт для логотипа
+@import url(https://fonts.googleapis.com/css?family=Oranienbaum:regular);
+
+// Импорт необходимых шрифтов
+@import url(https://fonts.googleapis.com/css?family=Alegreya:regular,500,600,700,800,900,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:regular,italic,700,700italic);
+
+// Переменные
+$main-font: PT Sans;
+$headings-font: Alegreya;
+$decoration-font: Alegreya;
+$UI-font: PT Sans;
+
+body {
+    font-family: $main-font;
+}
+
+
+h1 {
+    font-family: $headings-font;
+    font-size: toRem(72);
+}
+
+h2, h3, h4 {
+    font-family: $UI-font;
+}
+
+h2 {
+    font-size: toRem(36);
+}
+
+h3 {
+    font-size: toRem(24);
+}
+
+h4 {
+    font-size: toRem(16);
+    font-weight: 700;
+}
+
+.subtext {
+    font-size: toRem(14);
+}
+
+// Decoration Texts
+.decoration-text__36 {
+    font-size: toRem(36);
+}

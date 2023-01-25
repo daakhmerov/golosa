@@ -1,0 +1,10 @@
+.link {
+    color: #8B8B8B;
+    transition: 0.5s;
+    &_active {
+        color: #010101;
+    }
+    &:hover {
+        color: #585858;
+    }
+}

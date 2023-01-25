@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content main-container__row">
+    <main class="content__text">
+        {% if subtitle %}
+        <h1 class="gap-15">{{ title }}</h1>
+        <h2 class="gap-90">{{ subtitle }}</h2>
+        {% else %}
+        <h1 class="gap-90">{{ title }}</h1>
+        {% endif %}
+        <p class="content__paragraph">
+          {{ content }}
+        </p>
+    </main>
+</div>
+{% endblock%}

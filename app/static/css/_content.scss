@@ -1,0 +1,65 @@
+@import '_mixins';
+@import '_functions';
+@import '_mixins';
+@import '_colors';
+
+.content {
+    width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    @include vGap(140);
+
+    &__breadcrumbs {
+        @include vGap(60);
+    }
+
+    &__article {
+        min-width: toRem(600);
+        padding: 0 toRem(35);
+    }
+
+    &__sidebar {
+        &_left {
+            position: relative;
+            min-width: toRem(200);
+            padding: 0 toRem(35) 0 0;
+        }
+        &_right {
+            position: relative;
+            min-width: toRem(300);
+            padding: 0 0 0 toRem(35);
+        }
+
+    }
+
+    &__title {
+        margin: 0 0 toRem(60) 0;
+        letter-spacing: -0.035rem;
+    }
+
+    &__abstract {
+        font-family: $decoration-font;
+        font-size: toRem(26);
+        @include vGap(30);
+    }
+
+    &__author {
+        font-style: italic;
+        @include vGap(30);
+        &::before{
+            content: 'Автор ';
+        }
+    }
+
+    &__paragraph {
+        display: block;
+        line-height: toRem(19);
+        letter-spacing: -0.035em;
+        @include vGap(30);
+
+        &:last-child {
+            margin:0;
+        }
+    }
+}
+

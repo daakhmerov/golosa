@@ -1,0 +1,81 @@
+@import '_colors';
+@import '_functions';
+@import '_mixins';
+
+// For all page
+body {
+    background-color: $base_darkGrey;
+    color: white;
+}
+.wrappper {
+    position: relative;
+
+}
+// Links
+.link {
+    color: #b3b3b3 !important;
+    &_active {
+        color: #ffffff !important;
+    }
+    &:hover {
+        color: #ffffff !important;
+    }
+}
+
+// BEGIN historyBlock
+.history {
+    @include vGap(200);
+    width:1100px;
+}
+.history-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: toRem(90);
+    column-gap: toRem(30);
+}
+
+.history-title {
+    @include vGap(200);
+}
+
+// BEGIN historyCard
+.history-card {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    width: toRem(255);
+    min-height: toRem(571);
+
+}
+
+.history-card__number {
+    @include vGap(30);
+}
+
+.history-card__title {
+    @include vGap(30);
+}
+
+.history-card__cover {
+    height: 140px;
+    width: 255px;
+    background-color: grey;
+    @include vGap(30);
+}
+
+.history-card__description {
+    @include vGap(45);
+}
+
+.history-card__readit {
+    color: #b3b3b3;
+    font-weight: 700;
+    transition: 0.5s;
+    &:hover{
+        color:#ffffff;
+    }
+
+}
+// END historyCard
+
+// END historyBlock

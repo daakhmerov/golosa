@@ -1,0 +1,23 @@
+@import '_functions';
+
+@mixin vGap($value) {
+    margin: 0 0 toRem($value) 0;
+}
+
+@mixin devBorder {
+    border: solid 1px red;
+}
+
+@mixin divGap($value) {
+    @include vGap($value);
+}
+
+@mixin pasteIcon($value) {
+    font-family: "Phosphor";
+    content: $value;
+}
+
+@mixin pasteIconImportant($value) {
+    font-family: "Phosphor" !important;
+    content: $value !important;
+}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Content -->
+<div class="history main-container__row">
+<h1 class="gap-90 history-title">Истории</h1>
+  <div class="history-container">
+    {% for entity in db%}
+      <div class="history-card">
+        <span class="history-card__number decoration-text__36">0{{ entity.get('id') }}</span>
+        <h2 class="history-card__title">{{ entity.get('title') }}</h2>
+        <div class="history-card__cover"><img src="{{ url_for('static', filename=entity.get('img_uri')) }}" alt=""></div>
+        <p class="history-card__description">
+          {{ entity.get('abstract') }}
+        </p>
+        <a href="stories/{{ entity.get('id') }}" class="history-card__readit">ЧИТАТЬ</a>
+      </div>
+    {% endfor%}
+
+  </div>
+</div>
+{% endblock %}

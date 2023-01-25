@@ -1,0 +1,17 @@
+p[data-narrator="interviewer"] {
+    &::before {
+        content: "Автор.";
+        display: inline-block;
+        margin-right: toRem(4);
+        font-weight: 700;
+    }
+}
+
+p[data-narrator="informant"] {
+    &::before {
+        content: "Информант.";
+        display: inline-block;
+        margin-right: toRem(4);
+        font-weight: 700;
+    }
+}
